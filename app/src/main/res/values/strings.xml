@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">TiendaVideojuegosApp_Luengo_Gomez_Alejandro</string>
     <string name="nombreAutor">Creado por Alejandro Luengo Gómez</string>
+    <string name="btnBuyTexto">Comprar</string>
+    <string name="btnResetTexto">Reiniciar valor</string>
+    <string name="tvJuegosComprados">Número de juegos comprados: </string>
 </resources>
