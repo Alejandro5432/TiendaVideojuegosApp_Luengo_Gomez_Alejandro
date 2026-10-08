@@ -30,12 +30,12 @@ public class AltaJuegos extends AppCompatActivity {
         btnMasJugadores.setOnClickListener(v-> {
             contadorNumJugadores++;
             tvNumJugadores.setText(String.valueOf(contadorNumJugadores));
-            Toast.makeText(getApplicationContext(), "Se ha pulsado el botón de reducir el número de jugadores", Toast.LENGTH_LONG.show());
+            Toast.makeText(getApplicationContext(), "Se ha pulsado el botón de incrementar el número de jugadores", Toast.LENGTH_LONG).show();
         });
         btnMenosJugadores.setOnClickListener(v-> {
             contadorNumJugadores--;
             tvNumJugadores.setText(String.valueOf(contadorNumJugadores));
-            Toast.makeText(getApplicationContext(), "Se ha pulsado el botón de reducir el número de jugadores", Toast.LENGTH_LONG.show());
+            Toast.makeText(getApplicationContext(), "Se ha pulsado el botón de reducir el número de jugadores", Toast.LENGTH_LONG).show();
         });
 
     }
