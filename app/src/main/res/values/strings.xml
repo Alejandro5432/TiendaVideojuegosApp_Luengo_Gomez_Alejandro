@@ -1,7 +1,19 @@
 <resources>
+    <!-- activity_main.xml -->
     <string name="app_name">TiendaVideojuegosApp_Luengo_Gomez_Alejandro</string>
     <string name="nombreAutor">Creado por Alejandro Luengo Gómez</string>
     <string name="btnBuyTexto">Comprar</string>
     <string name="btnResetTexto">Reiniciar valor</string>
     <string name="tvJuegosComprados">Número de juegos comprados: </string>
+
+    <!-- alta_juegos.xml -->
+    <string name="tvInfoNumJugadores">Contador de Jugadores</string>
+    <string name="btnMasJugadores">+</string>
+    <string name="btnMenosJugadores">-</string>
+    <string name="tvNombreJuego">Nombre del juego</string>
+    <string name="etEscribeNombreJuego">Escriba aquí el nombre del juego y luego pulse el botón</string>
+    <string name="btnCopiarNombreJuego">Guardar Nombre</string>
+    <string name="cbEnLaColeccion">¿Está en la colección?</string>
+    <string name="tvPulsaBoton">Pulsa el botón</string>
+    <string name="btnPulsame">Pulsame</string>
 </resources>

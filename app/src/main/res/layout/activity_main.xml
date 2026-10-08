@@ -37,8 +37,7 @@
         app:layout_constraintBottom_toTopOf="@id/btnReset"
         app:layout_constraintEnd_toStartOf="@id/etContadorJuegosComprados"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnCheck"
- />
+        app:layout_constraintTop_toBottomOf="@id/btnCheck" />
 
     <EditText
         android:id="@+id/etContadorJuegosComprados"
