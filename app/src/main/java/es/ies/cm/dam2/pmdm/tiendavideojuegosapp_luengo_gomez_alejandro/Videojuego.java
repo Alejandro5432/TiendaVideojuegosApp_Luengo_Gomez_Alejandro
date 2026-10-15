@@ -9,6 +9,8 @@ public class Videojuego {
     protected String genero;
     protected String numJugadores; // ej: 1 a 4 jugadores
     protected int edadRecomendada;
+
+    // protected date fechaSalida
     protected ArrayList<String> plataformas; // ej: Consolas, PC, etc...
 
     public Videojuego() {
