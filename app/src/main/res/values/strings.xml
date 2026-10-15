@@ -16,4 +16,18 @@
     <string name="cbEnLaColeccion">¿Está en la colección?</string>
     <string name="tvPulsaBoton">Pulsa el botón</string>
     <string name="btnPulsame">Pulsame</string>
+    <string name="alPulsarElButton">Botón pulsado</string>
+
+    <!-- estado_juegos.xml -->
+    <string name="btnPrimero"> 1 </string>
+    <string name="btnSegundo"> 2 </string>
+    <string name="btnTercero"> 3 </string>
+    <string name="btnCuarto"> 4 </string>
+    <string name="btnQuinto">  5 </string>
+    <string name="btnSexto"> 6 </string>
+    <string name="btnSeptimo"> 7 </string>
+    <string name="btnOctavo"> 8 </string>
+    <string name="btnNoveno"> 9 </string>
+
+
 </resources>

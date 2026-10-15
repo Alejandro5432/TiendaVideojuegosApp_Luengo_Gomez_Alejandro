@@ -6,9 +6,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
+// Clase de la práctica 2
 public class AltaJuegos extends AppCompatActivity {
 
     private TextView tvNumJugadores = findViewById(R.id.tvNumJugadores);
@@ -21,6 +21,7 @@ public class AltaJuegos extends AppCompatActivity {
     private EditText etEscribeNombreJuego = findViewById(R.id.etEscribeNombreJuego);
     private CheckBox cbEnLaColeccion = findViewById(R.id.cbEnLaColeccion);
     private int contadorNumJugadores = 0;
+    private final String alPulsarElButton = getString(R.string.alPulsarElButton);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +33,26 @@ public class AltaJuegos extends AppCompatActivity {
             tvNumJugadores.setText(String.valueOf(contadorNumJugadores));
             Toast.makeText(getApplicationContext(), "Se ha pulsado el botón de incrementar el número de jugadores", Toast.LENGTH_LONG).show();
         });
+
         btnMenosJugadores.setOnClickListener(v-> {
             contadorNumJugadores--;
             tvNumJugadores.setText(String.valueOf(contadorNumJugadores));
             Toast.makeText(getApplicationContext(), "Se ha pulsado el botón de reducir el número de jugadores", Toast.LENGTH_LONG).show();
         });
 
+        btnCopiarNombreJuego.setOnClickListener(v -> {
+            tvMostrarNombreJuego.setText((CharSequence) etEscribeNombreJuego);
+            etEscribeNombreJuego.setText("");
+        });
+
+        cbEnLaColeccion.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked){
+                btnPulsame.setEnabled(false);
+            } else{
+                btnPulsame.setEnabled(true);
+            }
+        });
+
+        btnPulsame.setOnClickListener(v -> tvPulsaBoton.setText(alPulsarElButton));
     }
 }

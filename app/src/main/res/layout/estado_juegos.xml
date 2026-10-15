@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Primer ejercicio -->
+    <TextView
+        android:id="@+id/tvBotonPulsado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/gridLayout"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:columnCount="3"
+        android:rowCount="3"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false"
+        app:layout_constraintTop_toBottomOf="@id/tvBotonPulsado"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintDimensionRatio="1:1">
+
+        <Button
+            android:id="@+id/btnPrimero"
+            android:text="@string/btnPrimero"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            style="@style/EstiloBotones"/>
+
+        <Button
+            android:id="@+id/btnSegundo"
+            android:text="@string/btnSegundo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            style="@style/EstiloBotones"/>
+
+        <Button
+            android:id="@+id/btnTercero"
+            android:text="@string/btnTercero"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            style="@style/EstiloBotones"/>
+
+        <Button
+            android:id="@+id/btnCuarto"
+            android:text="@string/btnCuarto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            style="@style/EstiloBotones"/>
+
+        <Button
+            android:id="@+id/btnQuinto"
+            android:text="@string/btnQuinto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            style="@style/EstiloBotones"/>
+
+        <Button
+            android:id="@+id/btnSexto"
+            android:text="@string/btnSexto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            style="@style/EstiloBotones"/>
+
+        <Button
+            android:id="@+id/btnSeptimo"
+            android:text="@string/btnSeptimo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            style="@style/EstiloBotones"/>
+
+        <Button
+            android:id="@+id/btnOctavo"
+            android:text="@string/btnOctavo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            style="@style/EstiloBotones"/>
+
+        <Button
+            android:id="@+id/btnNoveno"
+            android:text="@string/btnNoveno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            style="@style/EstiloBotones"/>
+        </GridLayout>
+
+    <!-- Segundo ejercicio -->
+
+    <!-- Tercer ejercicio -->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

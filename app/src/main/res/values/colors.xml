@@ -6,4 +6,15 @@
     <color name="PrimaryDark">#1F2E83</color>
     <color name="Accent">#A161CCC1</color>
     <color name="Text">#AC1212</color>
+
+    <!-- Defino un estilo para los botones (práctica 3) -->
+    <style name="EstiloBotones" parent="Widget.Material3.Button.UnelevatedButton">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#FF5722</item>
+        <item name="android:backgroundTint">#1F2E83</item>
+        <!-- Radio de la esquina del botón -->
+        <item name="cornerRadius">12dp</item>
+        <!-- Color del destello al pulsar el botón -->
+        <item name="rippleColor">#03DAC5</item>
+    </style>
 </resources>
