@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayoutEstadoJuegos"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -124,38 +125,37 @@
         app:layout_constraintTop_toBottomOf="@id/etDificultadJuego"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/rbNuevo"/>
+        app:layout_constraintBottom_toTopOf="@id/RadioGroup"/>
 
     <!-- Tercer ejercicio -->
-    <RadioButton
-        android:id="@+id/rbNuevo"
+    <RadioGroup
+        android:id="@+id/RadioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/rbNuevo"
-        app:layout_constraintBottom_toTopOf="@id/btnLimpiar"
-        app:layout_constraintEnd_toStartOf="@id/rbSegundaMano"
         app:layout_constraintTop_toBottomOf="@id/tvDificultadIncorrecta"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <RadioButton
-        android:id="@+id/rbSegundaMano"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/rbSegundaMano"
-        app:layout_constraintBottom_toTopOf="@id/btnLimpiar"
-        app:layout_constraintTop_toBottomOf="@id/tvDificultadIncorrecta"
-        app:layout_constraintEnd_toStartOf="@id/rbAlquilado"
-        app:layout_constraintStart_toEndOf="@id/rbNuevo"/>
-
-    <RadioButton
-        android:id="@+id/rbAlquilado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/rbAlquilado"
-        app:layout_constraintBottom_toTopOf="@id/btnLimpiar"
-        app:layout_constraintTop_toBottomOf="@id/tvDificultadIncorrecta"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/rbSegundaMano"/>
+        app:layout_constraintBottom_toTopOf="@id/btnLimpiar">
+
+        <RadioButton
+            android:id="@+id/rbNuevo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rbNuevo" />
+
+        <RadioButton
+            android:id="@+id/rbSegundaMano"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rbSegundaMano" />
+
+        <RadioButton
+            android:id="@+id/rbAlquilado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rbAlquilado" />
+
+    </RadioGroup>
 
     <Button
         android:id="@+id/btnLimpiar"
@@ -165,7 +165,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rbNuevo"/>
+        app:layout_constraintTop_toBottomOf="@id/RadioGroup"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

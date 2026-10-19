@@ -1,11 +1,14 @@
 package es.ies.cm.dam2.pmdm.tiendavideojuegosapp_luengo_gomez_alejandro;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,11 +28,13 @@ public class EstadoJuegos extends AppCompatActivity {
     private Button btnNoveno = findViewById(R.id.btnNoveno);
     private Button btnLimpiar = findViewById(R.id.btnLimpiar);
     private EditText etDificultadJuego = findViewById(R.id.etDificultadJuego);
+    private RadioGroup radioGroup = findViewById(R.id.RadioGroup);
     private RadioButton rbNuevo = findViewById(R.id.rbNuevo);
     private RadioButton rbSegundaMano = findViewById(R.id.rbSegundaMano);
     private RadioButton rbAlquilado = findViewById(R.id.rbAlquilado);
     private String seHaPulsado = getString(R.string.seHaPulsado);
     private String dificultadIncorrecta = getString(R.string.tvDificultadIncorrecta);
+    private final View mainLayoutEstadoJuegos = findViewById(R.id.mainLayoutEstadoJuegos);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +51,6 @@ public class EstadoJuegos extends AppCompatActivity {
         configurarButton(btnSexto, "6");
         configurarButton(btnSeptimo, "7");
         configurarButton(btnOctavo, "8");
-        configurarButton(btnNoveno, "9");
 
         // Segundo ejercicio
         etDificultadJuego.addTextChangedListener(new TextWatcher() {
@@ -81,8 +85,22 @@ public class EstadoJuegos extends AppCompatActivity {
         });
 
         // Tercer ejercicio
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId == R.id.rbNuevo){
+                    mainLayoutEstadoJuegos.setBackgroundColor(Color.GREEN);
+                } else if (checkedId == R.id.rbSegundaMano) {
+                    mainLayoutEstadoJuegos.setBackgroundColor(Color.YELLOW);
+                } else if (checkedId == R.id.rbAlquilado) {
+                    mainLayoutEstadoJuegos.setBackgroundColor(Color.RED);
+                }
+            }
+        });
+        // Limpio selección y pongo el color del fondo a blanco
         btnLimpiar.setOnClickListener(v-> {
-
+            radioGroup.clearCheck();
+            mainLayoutEstadoJuegos.setBackgroundColor(Color.WHITE);
         });
     }
 
