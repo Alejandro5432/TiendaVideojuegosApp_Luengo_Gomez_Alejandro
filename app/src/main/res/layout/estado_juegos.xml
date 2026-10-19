@@ -18,13 +18,13 @@
     <GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:columnCount="3"
         android:rowCount="3"
         android:alignmentMode="alignMargins"
         android:columnOrderPreserved="false"
         app:layout_constraintTop_toBottomOf="@id/tvBotonPulsado"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/etDificultadJuego"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintDimensionRatio="1:1">
@@ -103,8 +103,69 @@
         </GridLayout>
 
     <!-- Segundo ejercicio -->
+    <EditText
+        android:id="@+id/etDificultadJuego"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/etDificultadJuego"
+        android:minHeight="48dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@id/tvDificultadIncorrecta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gridLayout" />
+
+    <TextView
+        android:id="@+id/tvDificultadIncorrecta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#AC1212"
+        app:layout_constraintTop_toBottomOf="@id/etDificultadJuego"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rbNuevo"/>
 
     <!-- Tercer ejercicio -->
+    <RadioButton
+        android:id="@+id/rbNuevo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rbNuevo"
+        app:layout_constraintBottom_toTopOf="@id/btnLimpiar"
+        app:layout_constraintEnd_toStartOf="@id/rbSegundaMano"
+        app:layout_constraintTop_toBottomOf="@id/tvDificultadIncorrecta"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <RadioButton
+        android:id="@+id/rbSegundaMano"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rbSegundaMano"
+        app:layout_constraintBottom_toTopOf="@id/btnLimpiar"
+        app:layout_constraintTop_toBottomOf="@id/tvDificultadIncorrecta"
+        app:layout_constraintEnd_toStartOf="@id/rbAlquilado"
+        app:layout_constraintStart_toEndOf="@id/rbNuevo"/>
+
+    <RadioButton
+        android:id="@+id/rbAlquilado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rbAlquilado"
+        app:layout_constraintBottom_toTopOf="@id/btnLimpiar"
+        app:layout_constraintTop_toBottomOf="@id/tvDificultadIncorrecta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/rbSegundaMano"/>
+
+    <Button
+        android:id="@+id/btnLimpiar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnLimpiar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rbNuevo"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

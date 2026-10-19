@@ -1,27 +1,29 @@
 package es.ies.cm.dam2.pmdm.tiendavideojuegosapp_luengo_gomez_alejandro;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 // Clase que almacena los datos de un Videojuego, necesaria para próximas implementaciones, como por ejemplo las bases de datos
 public class Videojuego {
     protected String titulo;
     protected double precio;
-    protected String genero;
+    protected String genero; // aventura, rol, etc...
     protected String numJugadores; // ej: 1 a 4 jugadores
-    protected int edadRecomendada;
+    protected int edadRecomendada; // +3, +7, etc...
 
-    // protected date fechaSalida
+    protected LocalDate fechaSalida;
     protected ArrayList<String> plataformas; // ej: Consolas, PC, etc...
 
     public Videojuego() {
     }
 
-    public Videojuego(String titulo, double precio, String genero, String numJugadores, int edadRecomendada, ArrayList<String> plataformas) {
+    public Videojuego(String titulo, double precio, String genero, String numJugadores, int edadRecomendada, LocalDate fechaSalida, ArrayList<String> plataformas) {
         this.titulo = titulo;
         this.precio = precio;
         this.genero = genero;
         this.numJugadores = numJugadores;
         this.edadRecomendada = edadRecomendada;
+        this.fechaSalida = fechaSalida;
         this.plataformas = plataformas;
     }
 
@@ -65,6 +67,14 @@ public class Videojuego {
         this.edadRecomendada = edadRecomendada;
     }
 
+    public LocalDate getFechaSalida() {
+        return fechaSalida;
+    }
+
+    public void setFechaSalida(LocalDate fechaSalida) {
+        this.fechaSalida = fechaSalida;
+    }
+
     public ArrayList<String> getPlataformas() {
         return plataformas;
     }
@@ -81,6 +91,7 @@ public class Videojuego {
                 ", genero='" + genero + '\'' +
                 ", numJugadores='" + numJugadores + '\'' +
                 ", edadRecomendada=" + edadRecomendada +
+                ", fechaSalida=" + fechaSalida +
                 ", plataformas=" + plataformas +
                 '}';
     }
