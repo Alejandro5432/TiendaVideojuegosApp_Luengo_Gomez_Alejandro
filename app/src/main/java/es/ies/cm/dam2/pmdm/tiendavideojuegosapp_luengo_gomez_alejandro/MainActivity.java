@@ -1,5 +1,6 @@
 package es.ies.cm.dam2.pmdm.tiendavideojuegosapp_luengo_gomez_alejandro;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnCheck;
     private Button btnReset;
     private int contadorClicks = 0;
+    private final Button btnVolverAlMenuMa = findViewById(R.id.btnVolverAlMenuMA);
 
 
     @Override
@@ -33,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
         btnReset.setOnClickListener(v-> {
             contadorClicks = 0;
             etContadorJuegosComprados.setText(String.valueOf(contadorClicks));
+        });
+
+        btnVolverAlMenuMa.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MenuPrincipal.class);
+            startActivity(intent);
         });
     }
 }

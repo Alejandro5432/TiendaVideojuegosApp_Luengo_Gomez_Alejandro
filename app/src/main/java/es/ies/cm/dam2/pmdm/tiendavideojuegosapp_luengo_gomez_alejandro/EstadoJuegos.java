@@ -1,5 +1,6 @@
 package es.ies.cm.dam2.pmdm.tiendavideojuegosapp_luengo_gomez_alejandro;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -35,6 +36,7 @@ public class EstadoJuegos extends AppCompatActivity {
     private String seHaPulsado = getString(R.string.seHaPulsado);
     private String dificultadIncorrecta = getString(R.string.tvDificultadIncorrecta);
     private final View mainLayoutEstadoJuegos = findViewById(R.id.mainLayoutEstadoJuegos);
+    private final Button btnVolverAlMenuEJ = findViewById(R.id.btnVolverAlMenuEJ);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,7 @@ public class EstadoJuegos extends AppCompatActivity {
         configurarButton(btnSexto, "6");
         configurarButton(btnSeptimo, "7");
         configurarButton(btnOctavo, "8");
+        configurarButton(btnNoveno, "9");
 
         // Segundo ejercicio
         etDificultadJuego.addTextChangedListener(new TextWatcher() {
@@ -102,8 +105,12 @@ public class EstadoJuegos extends AppCompatActivity {
             radioGroup.clearCheck();
             mainLayoutEstadoJuegos.setBackgroundColor(Color.WHITE);
         });
-    }
 
+        btnVolverAlMenuEJ.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MenuPrincipal.class);
+            startActivity(intent);
+        });
+    }
     private void configurarButton(Button button, String numero){
         button.setOnClickListener(v-> tvBotonPulsado.setText(seHaPulsado + numero));
     }

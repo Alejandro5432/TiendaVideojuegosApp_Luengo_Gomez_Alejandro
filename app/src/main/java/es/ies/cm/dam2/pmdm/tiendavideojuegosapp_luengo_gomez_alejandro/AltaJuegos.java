@@ -1,5 +1,6 @@
 package es.ies.cm.dam2.pmdm.tiendavideojuegosapp_luengo_gomez_alejandro;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -22,6 +23,7 @@ public class AltaJuegos extends AppCompatActivity {
     private CheckBox cbEnLaColeccion = findViewById(R.id.cbEnLaColeccion);
     private int contadorNumJugadores = 0;
     private final String alPulsarElButton = getString(R.string.alPulsarElButton);
+    private final Button btnVolverAlMenuAJ = findViewById(R.id.btnVolverAlMenuAJ);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,5 +56,10 @@ public class AltaJuegos extends AppCompatActivity {
         });
 
         btnPulsame.setOnClickListener(v -> tvPulsaBoton.setText(alPulsarElButton));
+
+        btnVolverAlMenuAJ.setOnClickListener(v -> {
+            Intent intent = new Intent(this, MenuPrincipal.class);
+            startActivity(intent);
+        });
     }
 }

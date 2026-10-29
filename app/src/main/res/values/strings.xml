@@ -36,5 +36,15 @@
     <string name="rbAlquilado">Alquilado</string>
     <string name="btnLimpiar">Limpiar</string>
 
+    <!-- menu_principal.xml -->
+    <string name="btnIrMainActivity"> Ir a la pantalla principal </string>
+    <string name="btnIrAltaJuegos"> Ir a la pantalla de alta de juegos </string>
+    <string name="btnIrEstadoJuegos"> Ir a la pantalla de estado de juegos </string>
+    <string name="btnIrFichaJuego"> Ir a la pantalla de ficha del juego</string>
 
+    <!-- ficha_juego.xml -->
+
+
+    <!-- Texto compartido con los botones de retorno al menú principal -->
+    <string name="btnVolverAlMenu">Regresar al Menú Principal</string>
 </resources>

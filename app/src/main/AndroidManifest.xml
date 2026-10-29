@@ -21,6 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AltaJuegos"/>
+        <activity android:name=".EstadoJuegos"/>
+        <activity android:name=".FichaJuego"/>
+        <activity android:name=".MenuPrincipal"/>
     </application>
 
 </manifest>
