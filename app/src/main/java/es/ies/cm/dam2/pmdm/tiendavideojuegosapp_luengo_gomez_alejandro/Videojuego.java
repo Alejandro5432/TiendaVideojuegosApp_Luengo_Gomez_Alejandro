@@ -8,7 +8,8 @@ public class Videojuego {
     protected String titulo;
     protected double precio;
     protected String genero; // aventura, rol, etc...
-    protected String numJugadores; // ej: 1 a 4 jugadores
+    protected int minJugadores;
+    protected int maxJugadores; // ej: 1 a 4 jugadores
     protected int edadRecomendada; // +3, +7, etc...
 
     protected LocalDate fechaSalida;
@@ -17,11 +18,12 @@ public class Videojuego {
     public Videojuego() {
     }
 
-    public Videojuego(String titulo, double precio, String genero, String numJugadores, int edadRecomendada, LocalDate fechaSalida, ArrayList<String> plataformas) {
+    public Videojuego(String titulo, double precio, String genero, int minJugadores, int maxJugadores, int edadRecomendada, LocalDate fechaSalida, ArrayList<String> plataformas) {
         this.titulo = titulo;
         this.precio = precio;
         this.genero = genero;
-        this.numJugadores = numJugadores;
+        this.minJugadores = minJugadores;
+        this.maxJugadores = maxJugadores;
         this.edadRecomendada = edadRecomendada;
         this.fechaSalida = fechaSalida;
         this.plataformas = plataformas;
@@ -51,12 +53,20 @@ public class Videojuego {
         this.genero = genero;
     }
 
-    public String getNumJugadores() {
-        return numJugadores;
+    public int getMinJugadores() {
+        return minJugadores;
     }
 
-    public void setNumJugadores(String numJugadores) {
-        this.numJugadores = numJugadores;
+    public void setMinJugadores(int minJugadores) {
+        this.minJugadores = minJugadores;
+    }
+
+    public int getMaxJugadores() {
+        return maxJugadores;
+    }
+
+    public void setMaxJugadores(int maxJugadores) {
+        this.maxJugadores = maxJugadores;
     }
 
     public int getEdadRecomendada() {
@@ -89,7 +99,8 @@ public class Videojuego {
                 "titulo='" + titulo + '\'' +
                 ", precio=" + precio +
                 ", genero='" + genero + '\'' +
-                ", numJugadores='" + numJugadores + '\'' +
+                ", minJugadores=" + minJugadores +
+                ", maxJugadores=" + maxJugadores +
                 ", edadRecomendada=" + edadRecomendada +
                 ", fechaSalida=" + fechaSalida +
                 ", plataformas=" + plataformas +

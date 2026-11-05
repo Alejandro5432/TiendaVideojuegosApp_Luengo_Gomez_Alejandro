@@ -43,7 +43,7 @@
     <string name="btnIrFichaJuego"> Ir a la pantalla de ficha del juego</string>
 
     <!-- ficha_juego.xml -->
-
+    <string name="btnEnviar"> Enviar </string>
 
     <!-- Texto compartido con los botones de retorno al menú principal -->
     <string name="btnVolverAlMenu">Regresar al Menú Principal</string>

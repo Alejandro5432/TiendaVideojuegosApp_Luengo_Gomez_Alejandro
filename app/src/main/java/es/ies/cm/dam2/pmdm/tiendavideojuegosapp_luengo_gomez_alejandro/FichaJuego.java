@@ -8,12 +8,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class FichaJuego extends AppCompatActivity {
 
-    private final Button btnVolverAlMenuFJ = findViewById(R.id.btnVolverAlMenuAJ);
+    private final Button btnVolverAlMenuFJ = findViewById(R.id.btnVolverAlMenuFJ);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ficha_juego);
+
+
 
         btnVolverAlMenuFJ.setOnClickListener(v -> {
             Intent intent = new Intent(this, MenuPrincipal.class);
