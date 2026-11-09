@@ -19,39 +19,28 @@ import androidx.appcompat.app.AppCompatActivity;
 public class AltaJuegoActivity extends AppCompatActivity {
     // Clase de la práctica 4, introducir lo de la práctica 2 y 3 aquí más lo anotado en el txt
     // Práctica 2
-    private TextView tvNumJugadores = findViewById(R.id.tvNumJugadores);
-    private TextView tvMostrarNombreJuego = findViewById(R.id.tvMostrarNombreJuego);
-    private TextView tvPulsaBoton = findViewById(R.id.tvPulsaBoton);
-    private Button btnMasJugadores = findViewById(R.id.btnMasJugadores);
-    private Button btnMenosJugadores = findViewById(R.id.btnMenosJugadores);
-    private Button btnCopiarNombreJuego = findViewById(R.id.btnCopiarNombreJuego);
-    private Button btnPulsame = findViewById(R.id.btnPulsame);
-    private EditText etEscribeNombreJuego = findViewById(R.id.etEscribeNombreJuego);
-    private CheckBox cbEnLaColeccion = findViewById(R.id.cbEnLaColeccion);
+    private final TextView tvMinJugadores = findViewById(R.id.tvMinJugadores);
+    private final TextView tvMaxJugadores = findViewById(R.id.tvMaxJugadores);
+    private final TextView tvMostrarNombreJuego = findViewById(R.id.tvMostrarNombreJuego);
+    private final Button btnMasJugadoresMin = findViewById(R.id.btnMasJugadoresMin);
+    private final Button btnMenosJugadoresMin = findViewById(R.id.btnMenosJugadoresMin);
+    private final Button btnMasJugadoresMax = findViewById(R.id.btnMasJugadoresMax);
+    private final Button btnMenosJugadoresMax = findViewById(R.id.btnMenosJugadoresMax);
+    private final Button btnCopiarNombreJuego = findViewById(R.id.btnCopiarNombreJuego);
+    private final EditText etEscribeNombreJuego = findViewById(R.id.etEscribeNombreJuego);
+    private final CheckBox cbEnLaColeccion = findViewById(R.id.cbEnLaColeccion);
     private int contadorNumJugadores = 0;
-    private final String alPulsarElButton = getString(R.string.alPulsarElButton);
+
     // Práctica 3
-    private TextView tvBotonPulsado = findViewById(R.id.tvBotonPulsado);
-    private TextView tvDificultadIncorrecta = findViewById(R.id.tvDificultadIncorrecta);
-    private Button btnPrimero = findViewById(R.id.btnPrimero);
-    private Button btnSegundo = findViewById(R.id.btnSegundo);
-    private Button btnTercero = findViewById(R.id.btnTercero);
-    private Button btnCuarto = findViewById(R.id.btnCuarto);
-    private Button btnQuinto = findViewById(R.id.btnQuinto);
-    private Button btnSexto = findViewById(R.id.btnSexto);
-    private Button btnSeptimo = findViewById(R.id.btnSeptimo);
-    private Button btnOctavo = findViewById(R.id.btnOctavo);
-    private Button btnNoveno = findViewById(R.id.btnNoveno);
-    private Button btnLimpiar = findViewById(R.id.btnLimpiar);
-    private EditText etDificultadJuego = findViewById(R.id.etDificultadJuego);
-    private RadioGroup radioGroup = findViewById(R.id.RadioGroup);
-    private RadioButton rbNuevo = findViewById(R.id.rbNuevo);
-    private RadioButton rbSegundaMano = findViewById(R.id.rbSegundaMano);
-    private RadioButton rbAlquilado = findViewById(R.id.rbAlquilado);
-    private String seHaPulsado = getString(R.string.seHaPulsado);
-    private String dificultadIncorrecta = getString(R.string.tvDificultadIncorrecta);
+    private final TextView tvDificultadIncorrecta = findViewById(R.id.tvDificultadIncorrecta);
+    private final Button btnLimpiar = findViewById(R.id.btnLimpiar);
+    private final EditText etDificultadJuego = findViewById(R.id.etDificultadJuego);
+    private final RadioGroup radioGroup = findViewById(R.id.RadioGroup);
+    private final RadioButton rbNuevo = findViewById(R.id.rbNuevo);
+    private final RadioButton rbSegundaMano = findViewById(R.id.rbSegundaMano);
+    private final RadioButton rbAlquilado = findViewById(R.id.rbAlquilado);
+    private final String dificultadIncorrecta = getString(R.string.tvDificultadIncorrecta);
     private final View mainLayoutAltaJuego = findViewById(R.id.mainLayoutAltaJuego);
-    // IMPORTANTE poner lo de MAIN LAYOUT para altaJuego que permite cambiar los colores
     private final Button btnVolverAlMenuAJ = findViewById(R.id.btnVolverAlMenuAJ);
 
 
@@ -76,31 +65,11 @@ public class AltaJuegoActivity extends AppCompatActivity {
             tvMostrarNombreJuego.setText((CharSequence) etEscribeNombreJuego);
             etEscribeNombreJuego.setText("");
         });
-
-        cbEnLaColeccion.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if(isChecked){
-                btnPulsame.setEnabled(false);
-            } else{
-                btnPulsame.setEnabled(true);
-            }
-        });
-
-        btnPulsame.setOnClickListener(v -> tvPulsaBoton.setText(alPulsarElButton));
         // Práctica 2
 
 
         // Práctica 3
-        // Primer ejercicio
-        // Creo una función para dejar el código más limpio y menos repetitivo
-        configurarButton(btnPrimero, "1");
-        configurarButton(btnSegundo, "2");
-        configurarButton(btnTercero, "3");
-        configurarButton(btnCuarto, "4");
-        configurarButton(btnQuinto, "5");
-        configurarButton(btnSexto, "6");
-        configurarButton(btnSeptimo, "7");
-        configurarButton(btnOctavo, "8");
-        configurarButton(btnNoveno, "9");
+        // Primer ejercicio (borrado ya que no me sirve para nada de las prácticas posteriores)
 
         // Segundo ejercicio
         etDificultadJuego.addTextChangedListener(new TextWatcher() {
@@ -116,6 +85,7 @@ public class AltaJuegoActivity extends AppCompatActivity {
                         tvDificultadIncorrecta.setText("");
                     } else {
                         tvDificultadIncorrecta.setText(dificultadIncorrecta);
+                        tvDificultadIncorrecta.setTextColor(Color.RED);
                     }
                     // Si salta un error porque no es un número se muestra el mismo mensaje
                 } catch(NumberFormatException e){
@@ -156,9 +126,6 @@ public class AltaJuegoActivity extends AppCompatActivity {
             Intent intent = new Intent(this, MenuPrincipal.class);
             startActivity(intent);
         });
-    }
-    private void configurarButton(Button button, String numero){
-        button.setOnClickListener(v-> tvBotonPulsado.setText(seHaPulsado + numero));
     }
         // Práctica 3
 }

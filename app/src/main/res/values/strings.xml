@@ -6,35 +6,29 @@
     <string name="btnResetTexto">Reiniciar valor</string>
     <string name="tvJuegosComprados">Número de juegos comprados: </string>
 
-    <!-- alta_juegos.xml -->
-    <string name="tvInfoNumJugadores">Contador de Jugadores</string>
+    <!-- alta_juego.xml -->
+    <string name="tvInfoNumJugadores">Número de Jugadores</string>
     <string name="btnMasJugadores">+</string>
     <string name="btnMenosJugadores">-</string>
     <string name="tvNombreJuego">Nombre del juego</string>
+    <string name="tvMinJugadores">Número mínimo de jugadores</string>
+    <string name="tvMaxJugadores">Número máximo de jugadores</string>
     <string name="etEscribeNombreJuego">Escriba aquí el nombre del juego y luego pulse el botón</string>
     <string name="btnCopiarNombreJuego">Guardar Nombre</string>
     <string name="cbEnLaColeccion">¿Está en la colección?</string>
     <string name="tvPulsaBoton">Pulsa el botón</string>
     <string name="btnPulsame">Pulsame</string>
     <string name="alPulsarElButton">Botón pulsado</string>
-
-    <!-- estado_juegos.xml -->
-    <string name="btnPrimero"> 1 </string>
-    <string name="btnSegundo"> 2 </string>
-    <string name="btnTercero"> 3 </string>
-    <string name="btnCuarto"> 4 </string>
-    <string name="btnQuinto">  5 </string>
-    <string name="btnSexto"> 6 </string>
-    <string name="btnSeptimo"> 7 </string>
-    <string name="btnOctavo"> 8 </string>
-    <string name="btnNoveno"> 9 </string>
-    <string name="seHaPulsado">Se ha pulsado el botón </string>
     <string name="etDificultadJuego">Introduzca el nivel de dificultad (1 a 10)</string>
     <string name="tvDificultadIncorrecta"> Dificultad incorrecta </string>
     <string name="rbNuevo">Nuevo</string>
     <string name="rbSegundaMano">Segunda Mano</string>
     <string name="rbAlquilado">Alquilado</string>
-    <string name="btnLimpiar">Limpiar</string>
+    <string name="btnLimpiar">Limpiar selección</string>
+    <string name="btnResetearCampos">Borrar los datos del formulario</string>
+    <string name="etPrecio">Introduzca el precio del juego</string>
+    <string name="etPlataformas">Introduzca las plataformas en las que \nestá disponible el juego</string>
+    <string name="btnFechaLanzamiento">Pulse para seleccionar la fecha de lanzamiento</string>
 
     <!-- menu_principal.xml -->
     <string name="btnIrMainActivity"> Ir a la pantalla principal </string>
@@ -43,7 +37,7 @@
     <string name="btnIrFichaJuego"> Ir a la pantalla de ficha del juego</string>
 
     <!-- ficha_juego.xml -->
-    <string name="btnEnviar"> Enviar </string>
+    <string name="btnEnviar"> Enviar datos</string>
 
     <!-- Texto compartido con los botones de retorno al menú principal -->
     <string name="btnVolverAlMenu">Regresar al Menú Principal</string>

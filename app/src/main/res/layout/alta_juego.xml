@@ -25,39 +25,68 @@
                 android:layout_height="wrap_content"
                 android:text="@string/tvInfoNumJugadores"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/tvNumJugadores"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Primera fila: mínimo de jugadores -->
 
             <TextView
-                android:id="@+id/tvNumJugadores"
+                android:id="@+id/tvMinJugadores"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
-                app:layout_constraintTop_toBottomOf="@+id/tvInfoNumJugadores"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/btnMenosJugadores"
-                app:layout_constraintStart_toEndOf="@id/btnMasJugadores"/>
-
-            <Button
-                android:id="@+id/btnMenosJugadores"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btnMenosJugadores"
+                android:hint="@string/tvMinJugadores"
                 app:layout_constraintTop_toBottomOf="@id/tvInfoNumJugadores"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tvNumJugadores" />
+                app:layout_constraintBottom_toBottomOf="@id/btnMasJugadoresMin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnMasJugadoresMin" />
 
             <Button
-                android:id="@+id/btnMasJugadores"
+                android:id="@+id/btnMasJugadoresMin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btnMasJugadores"
                 app:layout_constraintTop_toBottomOf="@id/tvInfoNumJugadores"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/tvNumJugadores"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toEndOf="@id/tvMinJugadores"
+                app:layout_constraintEnd_toStartOf="@id/btnMenosJugadoresMin" />
+
+            <Button
+                android:id="@+id/btnMenosJugadoresMin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnMenosJugadores"
+                app:layout_constraintTop_toTopOf="@id/btnMasJugadoresMin"
+                app:layout_constraintStart_toEndOf="@id/btnMasJugadoresMin"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Segunda fila: máximo de jugadores -->
+
+            <TextView
+                android:id="@+id/tvMaxJugadores"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/tvMaxJugadores"
+                app:layout_constraintTop_toBottomOf="@id/btnMasJugadoresMin"
+                app:layout_constraintBottom_toBottomOf="@id/btnMasJugadoresMax"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnMasJugadoresMax" />
+
+            <Button
+                android:id="@+id/btnMasJugadoresMax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnMasJugadores"
+                app:layout_constraintTop_toBottomOf="@id/btnMasJugadoresMin"
+                app:layout_constraintStart_toEndOf="@id/tvMaxJugadores"
+                app:layout_constraintEnd_toStartOf="@id/btnMenosJugadoresMax" />
+
+            <Button
+                android:id="@+id/btnMenosJugadoresMax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnMenosJugadores"
+                app:layout_constraintTop_toTopOf="@id/btnMasJugadoresMax"
+                app:layout_constraintStart_toEndOf="@id/btnMasJugadoresMax"
+                app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -105,9 +134,20 @@
                 android:layout_height="wrap_content"
                 android:text="@string/btnCopiarNombreJuego"
                 app:layout_constraintTop_toBottomOf="@id/etEscribeNombreJuego"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/cbEnLaColeccion"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <CheckBox
+                android:id="@+id/cbEnLaColeccion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cbEnLaColeccion"
+                android:checked="true"
+                app:layout_constraintTop_toBottomOf="@id/btnCopiarNombreJuego"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -116,141 +156,68 @@
             android:layout_height="wrap_content"
             android:paddingBottom="24dp">
 
-            <CheckBox
-                android:id="@+id/cbEnLaColeccion"
+            <EditText
+                android:id="@+id/etPrecio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/cbEnLaColeccion"
-                android:checked="true"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/tvPulsaBoton"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:hint="@string/etPrecio"
+                android:inputType="numberDecimal"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toTopOf="@id/spGenero"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tvPulsaBoton"
+            <Spinner
+                android:id="@+id/spGenero"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tvPulsaBoton"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/btnPulsame"
-                app:layout_constraintStart_toEndOf="@id/cbEnLaColeccion" />
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toTopOf="@id/spEdadRecomendada"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etPrecio" />
+
+            <Spinner
+                android:id="@+id/spEdadRecomendada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toTopOf="@id/btnFechaLanzamiento"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spGenero" />
 
             <Button
-                android:id="@+id/btnPulsame"
+                android:id="@+id/btnFechaLanzamiento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/btnPulsame"
-                android:enabled="false"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="@string/btnFechaLanzamiento"
+                app:layout_constraintTop_toBottomOf="@id/spEdadRecomendada"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <EditText
+                android:id="@+id/etPlataformas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/etPlataformas"
+                android:inputType="textMultiLine"
+                android:minLines="1"
+                android:maxLines="3"
+                app:layout_constraintTop_toBottomOf="@id/btnFechaLanzamiento"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tvPulsaBoton"/>
+                app:layout_constraintBottom_toBottomOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="24dp">
-
-            <TextView
-                android:id="@+id/tvBotonPulsado"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/gridLayout"
-                app:layout_constraintTop_toTopOf="parent"/>
-
-            <GridLayout
-                android:id="@+id/gridLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:columnCount="3"
-                android:rowCount="3"
-                android:alignmentMode="alignMargins"
-                android:columnOrderPreserved="false"
-                app:layout_constraintTop_toBottomOf="@id/tvBotonPulsado"
-                app:layout_constraintBottom_toTopOf="@id/etDificultadJuego"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintDimensionRatio="1:1">
-
-                <Button
-                    android:id="@+id/btnPrimero"
-                    android:text="@string/btnPrimero"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    style="@style/EstiloBotones"/>
-
-                <Button
-                    android:id="@+id/btnSegundo"
-                    android:text="@string/btnSegundo"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    style="@style/EstiloBotones"/>
-
-                <Button
-                    android:id="@+id/btnTercero"
-                    android:text="@string/btnTercero"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    style="@style/EstiloBotones"/>
-
-                <Button
-                    android:id="@+id/btnCuarto"
-                    android:text="@string/btnCuarto"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    style="@style/EstiloBotones"/>
-
-                <Button
-                    android:id="@+id/btnQuinto"
-                    android:text="@string/btnQuinto"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    style="@style/EstiloBotones"/>
-
-                <Button
-                    android:id="@+id/btnSexto"
-                    android:text="@string/btnSexto"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    style="@style/EstiloBotones"/>
-
-                <Button
-                    android:id="@+id/btnSeptimo"
-                    android:text="@string/btnSeptimo"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    style="@style/EstiloBotones"/>
-
-                <Button
-                    android:id="@+id/btnOctavo"
-                    android:text="@string/btnOctavo"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    style="@style/EstiloBotones"/>
-
-                <Button
-                    android:id="@+id/btnNoveno"
-                    android:text="@string/btnNoveno"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    style="@style/EstiloBotones"/>
-            </GridLayout>
 
             <EditText
                 android:id="@+id/etDificultadJuego"
@@ -262,7 +229,7 @@
                 app:layout_constraintBottom_toTopOf="@id/tvDificultadIncorrecta"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/gridLayout" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvDificultadIncorrecta"
@@ -274,7 +241,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/RadioGroup"/>
-
 
             <RadioGroup
                 android:id="@+id/RadioGroup"
@@ -302,7 +268,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/rbAlquilado" />
-
             </RadioGroup>
 
             <Button
@@ -328,7 +293,17 @@
                 android:layout_height="wrap_content"
                 android:text="@string/btnEnviar"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/btnVolverAlMenuAJ"
+                app:layout_constraintEnd_toStartOf="@id/btnResetearCampos"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <Button
+                android:id="@+id/btnResetearCampos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnResetearCampos"
+                app:layout_constraintStart_toEndOf="@id/btnEnviar"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -337,10 +312,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btnVolverAlMenu"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnEnviar"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/btnEnviar" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

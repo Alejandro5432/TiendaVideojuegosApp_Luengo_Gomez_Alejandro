@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class FichaJuego extends AppCompatActivity {
 
+    // Segunda clase de la práctica 4
     private final Button btnVolverAlMenuFJ = findViewById(R.id.btnVolverAlMenuFJ);
 
     @Override

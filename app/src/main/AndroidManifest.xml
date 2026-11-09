@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TiendaVideojuegosApp_Luengo_Gomez_Alejandro">
         <activity
-            android:name=".MainActivity"
+            android:name=".MenuPrincipal"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -21,10 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AltaJuegos"/>
-        <activity android:name=".EstadoJuegos"/>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".AltaJuegoActivity"/>
         <activity android:name=".FichaJuego"/>
-        <activity android:name=".MenuPrincipal"/>
     </application>
 
 </manifest>
