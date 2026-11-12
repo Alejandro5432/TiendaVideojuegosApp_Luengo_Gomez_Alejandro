@@ -20,6 +20,56 @@
             android:paddingBottom="24dp">
 
             <TextView
+                android:id="@+id/tvNombreJuego"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tvNombreJuego"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tvMostrarNombreJuego"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvMostrarNombreJuego"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:layout_constraintTop_toBottomOf="@id/tvNombreJuego"
+                app:layout_constraintBottom_toTopOf="@id/etEscribeNombreJuego"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/etEscribeNombreJuego"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/etEscribeNombreJuego"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/btnCopiarNombreJuego"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvMostrarNombreJuego" />
+
+            <Button
+                android:id="@+id/btnCopiarNombreJuego"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnCopiarNombreJuego"
+                app:layout_constraintTop_toBottomOf="@id/etEscribeNombreJuego"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="24dp">
+
+            <TextView
                 android:id="@+id/tvInfoNumJugadores"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,67 +140,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="24dp">
-
-            <TextView
-                android:id="@+id/tvNombreJuego"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tvNombreJuego"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/tvMostrarNombreJuego"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
-
-            <TextView
-                android:id="@+id/tvMostrarNombreJuego"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                app:layout_constraintTop_toBottomOf="@id/tvNombreJuego"
-                app:layout_constraintBottom_toTopOf="@id/etEscribeNombreJuego"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <EditText
-                android:id="@+id/etEscribeNombreJuego"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="@string/etEscribeNombreJuego"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@id/btnCopiarNombreJuego"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvMostrarNombreJuego" />
-
-            <Button
-                android:id="@+id/btnCopiarNombreJuego"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btnCopiarNombreJuego"
-                app:layout_constraintTop_toBottomOf="@id/etEscribeNombreJuego"
-                app:layout_constraintBottom_toTopOf="@id/cbEnLaColeccion"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <CheckBox
-                android:id="@+id/cbEnLaColeccion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/cbEnLaColeccion"
-                android:checked="true"
-                app:layout_constraintTop_toBottomOf="@id/btnCopiarNombreJuego"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -212,7 +201,6 @@
                 app:layout_constraintBottom_toBottomOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"
             android:layout_width="match_parent"
@@ -224,8 +212,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/etDificultadJuego"
+                android:inputType="number"
                 android:minHeight="48dp"
-                android:text=""
                 app:layout_constraintBottom_toTopOf="@id/tvDificultadIncorrecta"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -237,19 +225,19 @@
                 android:layout_height="wrap_content"
                 android:text=""
                 android:textColor="#AC1212"
-                app:layout_constraintTop_toBottomOf="@id/etDificultadJuego"
+                app:layout_constraintBottom_toTopOf="@id/RadioGroup"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/RadioGroup"/>
+                app:layout_constraintTop_toBottomOf="@id/etDificultadJuego" />
 
             <RadioGroup
                 android:id="@+id/RadioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tvDificultadIncorrecta"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/btnLimpiar">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDificultadIncorrecta">
 
                 <RadioButton
                     android:id="@+id/rbNuevo"
@@ -269,17 +257,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/rbAlquilado" />
             </RadioGroup>
-
-            <Button
-                android:id="@+id/btnLimpiar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btnLimpiar"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/RadioGroup"/>
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -316,8 +293,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
-
 </ScrollView>

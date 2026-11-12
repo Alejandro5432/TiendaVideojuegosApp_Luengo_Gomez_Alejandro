@@ -41,4 +41,27 @@
 
     <!-- Texto compartido con los botones de retorno al menú principal -->
     <string name="btnVolverAlMenu">Regresar al Menú Principal</string>
+
+    <!-- Spinners de AltaJuegoActivity -->
+    <string-array name="spGenero">
+        <item>Seleccione un género</item>
+        <item>Estrategia</item>
+        <item>Familiar</item>
+        <item>Cooperativo</item>
+        <item>Competitivo</item>
+        <item>Aventura</item>
+        <item>Sandbox</item>
+        <item>Gestión de recursos</item>
+        <item>Acción</item>
+        <item>Juego de lucha</item>
+        <item>Disparos</item>
+    </string-array>
+    <string-array name="spEdadRecomendada">
+        <item>Seleccione la edad recomendada para poder jugar</item>
+        <item>3+</item>
+        <item>7+</item>
+        <item>12+</item>
+        <item>16+</item>
+        <item>18+</item>
+    </string-array>
 </resources>

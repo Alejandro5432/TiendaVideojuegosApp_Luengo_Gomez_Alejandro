@@ -16,8 +16,6 @@ public class FichaJuego extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ficha_juego);
 
-
-
         btnVolverAlMenuFJ.setOnClickListener(v -> {
             Intent intent = new Intent(this, MenuPrincipal.class);
             startActivity(intent);
