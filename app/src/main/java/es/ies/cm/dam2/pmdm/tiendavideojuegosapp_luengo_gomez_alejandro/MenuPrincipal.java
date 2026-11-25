@@ -8,9 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MenuPrincipal extends AppCompatActivity {
     private final Button btnIrMainActivity = findViewById(R.id.btnIrMainActivity);
-    private final Button btnIrAltaJuegos = findViewById(R.id.btnIrAltaJuegos);
-    private final Button btnIrEstadoJuegos = findViewById(R.id.btnIrEstadoJuegos);
     private final Button btnIrFichaJuego = findViewById(R.id.btnIrFichaJuego);
+    private final Button btnIrAltaJuego = findViewById(R.id.btnIrAltaJuegos);
 
 
     @Override
@@ -29,14 +28,9 @@ public class MenuPrincipal extends AppCompatActivity {
             startActivity(intent2);
         });
 
-        btnIrEstadoJuegos.setOnClickListener(v -> {
-            Intent intent3 = new Intent(this, EstadoJuegos.class);
+        btnIrAltaJuego.setOnClickListener(v -> {
+            Intent intent3 = new Intent(this, AltaJuegoActivity.class);
             startActivity(intent3);
-        });
-
-        btnIrAltaJuegos.setOnClickListener(v -> {
-            Intent intent4 = new Intent(this, AltaJuegos.class);
-            startActivity(intent4);
         });
     }
 }

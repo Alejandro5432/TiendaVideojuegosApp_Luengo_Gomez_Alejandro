@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class FichaJuego extends AppCompatActivity {
 
     // Segunda clase de la práctica 4
+    // Para la práctica ocho pasará a ser ColeccionJuegos
+    // En la nueve se hará con un RecyclerView
     private final Button btnVolverAlMenuFJ = findViewById(R.id.btnVolverAlMenuFJ);
 
     @Override

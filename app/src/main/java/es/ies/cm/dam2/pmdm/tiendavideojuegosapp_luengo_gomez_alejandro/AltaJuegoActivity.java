@@ -15,8 +15,12 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.graphics.Color;
+import android.text.Editable;
+import android.text.TextWatcher;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewTreeLifecycleOwner;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -63,36 +67,6 @@ public class AltaJuegoActivity extends AppCompatActivity {
             etEscribeNombreJuego.setText("");
         });
 
-        etDificultadJuego.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void afterTextChanged(Editable s) {
-                String texto = s.toString().trim();
-
-                try{
-                    int dificultad = Integer.parseInt(texto);
-
-                    if(dificultad >= 1 && dificultad <= 10){
-                        // Si es correcto no dice nada
-                        tvDificultadIncorrecta.setText("");
-                    } else {
-                        tvDificultadIncorrecta.setText(dificultadIncorrecta);
-                        tvDificultadIncorrecta.setTextColor(Color.RED);
-                    }
-                    // Si salta un error porque no es un número se muestra el mismo mensaje
-                } catch(NumberFormatException e){
-                    tvDificultadIncorrecta.setText(dificultadIncorrecta);
-                }
-            }
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // No lo necesito
-            }
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Tampoco lo necesito
-            }
-        });
-
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -129,8 +103,13 @@ public class AltaJuegoActivity extends AppCompatActivity {
             mainLayoutAltaJuego.setBackgroundColor(Color.WHITE);
         });
 
-        btnEnviar.setOnClickListener(v-> {
+        seleccionarNumJugadores();
+        configurarSpinners();
+        configurarFecha();
+        configurarValidacionDificultad();
 
+        btnEnviar.setOnClickListener(v-> {
+            validarCamposYEnviar();
         });
     }
 
@@ -209,6 +188,59 @@ public class AltaJuegoActivity extends AppCompatActivity {
                 selectorFecha.show();
             });
         }
+
+    // Función para validar la dificultad
+    private boolean validarDificultad(String texto){
+        try{
+            int dificultad = Integer.parseInt(texto);
+
+            if(dificultad >= 1 && dificultad <= 10){
+                // La dificultad está en el rango correcto
+                tvDificultadIncorrecta.setText("");
+                return true;
+            }else {
+                // La dificultad está fuera del intervalo
+                tvDificultadIncorrecta.setText("La dificultad debe estar entre 1 y 10");
+                tvDificultadIncorrecta.setTextColor(Color.RED);
+                return false;
+            }
+        } catch (NumberFormatException e){
+            // El contenido no es un número entero
+            tvDificultadIncorrecta.setText("La dificultad debe estar entre 1 y 10");
+        }
+        tvDificultadIncorrecta.setTextColor(Color.RED);
+        return false;
+    }
+
+    // Validación con addTextChangedListener
+    private void configurarValidacionDificultad(){
+        etDificultadJuego.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String texto = editable.toString().trim();
+
+                // Si está vacío limpio el mensaje.
+
+                if(texto.isEmpty()){
+                    tvDificultadIncorrecta.setText("");
+                    return;
+                }
+                validarDificultad(texto);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // No necesario
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // No necesario
+            }
+        });
+    }
+
+    // Función para validar los campos, una vez validados se envían mediante Intent a la Activity de FichaJuego
     private void validarCamposYEnviar(){
         // 1. Compruebo que tenga nombre
         String nombre = etEscribeNombreJuego.getText().toString().trim();
@@ -287,6 +319,13 @@ public class AltaJuegoActivity extends AppCompatActivity {
         }
 
         // 8. Compruebo que la dificultad sea correcta
+        String dificultadTexto = etDificultadJuego.getText().toString().trim();
+
+        if(!validarDificultad(dificultadTexto)){
+            etDificultadJuego.requestFocus();
+            return;
+        }
+        int dificultad = Integer.parseInt(dificultadTexto);
 
         // 9. Compruebo que se ha seleccionado algo del RadioGroup
         int idSeleccionado = radioGroup.getCheckedRadioButtonId();
@@ -299,19 +338,18 @@ public class AltaJuegoActivity extends AppCompatActivity {
         String opcionMarcada = rbSeleccionado.getText().toString();
 
         // Tras comprobar todos los datos, si todos son correctos, envía los datos a la activity de FichaJuego.java
-        //Intent intent = new Intent(AltaJuegoActivity.this, FichaJuego.class);
+        Intent intent = new Intent(AltaJuegoActivity.this, FichaJuego.class);
         // Paso todos los datos del formulario, los tendré que recibir en la otra activity
-        // todo Esta parafernalia
-        //intent.putExtra();
-        //intent.putExtra();
-        //intent.putExtra();
-        //intent.putExtra();
-        //intent.putExtra();
-        //intent.putExtra();
-        //intent.putExtra();
-        // intent.putExtra("Dificultad", dificultad);
-        //intent.putExtra("Opcion Marcada", opcionMarcada);
-        //startActivity(intent);
-
+        intent.putExtra("minJugadores", minimo);
+        intent.putExtra("maxJugadores", maximo);
+        intent.putExtra("nombre", nombre);
+        intent.putExtra("precio", precio.toPlainString());
+        intent.putExtra("genero", genero);
+        intent.putExtra("edadRecomendada", edadRecomendada);
+        intent.putExtra("fechaLanzamiento", fechaLanzamiento);
+        intent.putExtra("plataformas", plataformas);
+        intent.putExtra("fificultad", dificultad);
+        intent.putExtra("opcionMarcada", opcionMarcada);
+        startActivity(intent);
     }
 }
