@@ -7,15 +7,21 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MenuPrincipal extends AppCompatActivity {
-    private final Button btnIrMainActivity = findViewById(R.id.btnIrMainActivity);
-    private final Button btnIrFichaJuego = findViewById(R.id.btnIrFichaJuego);
-    private final Button btnIrAltaJuego = findViewById(R.id.btnIrAltaJuegos);
+    private Button btnIrMainActivity;
+    private Button btnIrFichaJuego;
+    private Button btnIrAltaJuego;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_principal);
+
+
+        // Inicializo componentes
+        btnIrMainActivity = findViewById(R.id.btnIrMainActivity);
+        btnIrFichaJuego = findViewById(R.id.btnIrFichaJuego);
+        btnIrAltaJuego  = findViewById(R.id.btnIrAltaJuegos);
 
         // Al pulsar el botón inicio esa actividad, por el momento no se pasa ninguna información
         btnIrMainActivity.setOnClickListener(v -> {

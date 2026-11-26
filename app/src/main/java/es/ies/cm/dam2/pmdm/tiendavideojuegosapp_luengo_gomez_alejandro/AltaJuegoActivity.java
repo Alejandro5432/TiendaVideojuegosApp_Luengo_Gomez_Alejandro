@@ -15,12 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.graphics.Color;
-import android.text.Editable;
-import android.text.TextWatcher;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewTreeLifecycleOwner;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -62,21 +57,20 @@ public class AltaJuegoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alta_juego);
 
+        inicializarComponentes();
+
         btnCopiarNombreJuego.setOnClickListener(v -> {
             tvMostrarNombreJuego.setText((CharSequence) etEscribeNombreJuego);
             etEscribeNombreJuego.setText("");
         });
 
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(checkedId == R.id.rbNuevo){
-                    mainLayoutAltaJuego.setBackgroundColor(Color.GREEN);
-                } else if (checkedId == R.id.rbSegundaMano) {
-                    mainLayoutAltaJuego.setBackgroundColor(Color.YELLOW);
-                } else if (checkedId == R.id.rbAlquilado) {
-                    mainLayoutAltaJuego.setBackgroundColor(Color.RED);
-                }
+        radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            if(checkedId == R.id.rbNuevo){
+                mainLayoutAltaJuego.setBackgroundColor(Color.GREEN);
+            } else if (checkedId == R.id.rbSegundaMano) {
+                mainLayoutAltaJuego.setBackgroundColor(Color.YELLOW);
+            } else if (checkedId == R.id.rbAlquilado) {
+                mainLayoutAltaJuego.setBackgroundColor(Color.RED);
             }
         });
 
@@ -92,8 +86,8 @@ public class AltaJuegoActivity extends AppCompatActivity {
             etPrecio.setText("");
             etPlataformas.setText("");
             etDificultadJuego.setText("");
-            //spGenero
-            //spEdadRecomendada
+            spGenero.setSelection(0); // Selecciono el primer valor
+            spEdadRecomendada.setSelection(0);
 
             // Elimino la fecha seleccionada
             // fecha de lanzamiento
@@ -111,6 +105,10 @@ public class AltaJuegoActivity extends AppCompatActivity {
         btnEnviar.setOnClickListener(v-> {
             validarCamposYEnviar();
         });
+    }
+
+    private void inicializarComponentes(){
+
     }
 
     private void seleccionarNumJugadores(){
@@ -200,13 +198,13 @@ public class AltaJuegoActivity extends AppCompatActivity {
                 return true;
             }else {
                 // La dificultad está fuera del intervalo
-                tvDificultadIncorrecta.setText("La dificultad debe estar entre 1 y 10");
+                tvDificultadIncorrecta.setText(dificultadIncorrecta);
                 tvDificultadIncorrecta.setTextColor(Color.RED);
                 return false;
             }
         } catch (NumberFormatException e){
             // El contenido no es un número entero
-            tvDificultadIncorrecta.setText("La dificultad debe estar entre 1 y 10");
+            tvDificultadIncorrecta.setText(dificultadIncorrecta);
         }
         tvDificultadIncorrecta.setTextColor(Color.RED);
         return false;
@@ -220,7 +218,6 @@ public class AltaJuegoActivity extends AppCompatActivity {
                 String texto = editable.toString().trim();
 
                 // Si está vacío limpio el mensaje.
-
                 if(texto.isEmpty()){
                     tvDificultadIncorrecta.setText("");
                     return;
@@ -348,7 +345,7 @@ public class AltaJuegoActivity extends AppCompatActivity {
         intent.putExtra("edadRecomendada", edadRecomendada);
         intent.putExtra("fechaLanzamiento", fechaLanzamiento);
         intent.putExtra("plataformas", plataformas);
-        intent.putExtra("fificultad", dificultad);
+        intent.putExtra("dificultad", dificultad);
         intent.putExtra("opcionMarcada", opcionMarcada);
         startActivity(intent);
     }

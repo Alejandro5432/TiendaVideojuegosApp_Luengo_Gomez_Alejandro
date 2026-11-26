@@ -25,13 +25,13 @@ public class MainActivity extends AppCompatActivity {
         btnCheck = findViewById(R.id.btnCheck);
         btnReset = findViewById(R.id.btnReset);
 
-        // Incremento el contador al hacer click
+        // Incremento el contador al hacer clic
         btnCheck.setOnClickListener(v-> {
             contadorClicks++;
             // Convierto el int a String y lo asigno al EditText
             etContadorJuegosComprados.setText(String.valueOf(contadorClicks));
         });
-        // Reseteo el contador al hacer click
+        // Reseteo el contador al hacer clic
         btnReset.setOnClickListener(v-> {
             contadorClicks = 0;
             etContadorJuegosComprados.setText(String.valueOf(contadorClicks));

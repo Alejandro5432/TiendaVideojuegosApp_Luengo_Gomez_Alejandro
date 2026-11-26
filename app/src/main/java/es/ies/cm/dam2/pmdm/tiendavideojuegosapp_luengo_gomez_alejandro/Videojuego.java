@@ -1,24 +1,25 @@
 package es.ies.cm.dam2.pmdm.tiendavideojuegosapp_luengo_gomez_alejandro;
 
+import androidx.annotation.NonNull;
+
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 // Clase que almacena los datos de un Videojuego, necesaria para próximas implementaciones, como por ejemplo las bases de datos
 public class Videojuego {
     protected String titulo;
     protected double precio;
-    protected String genero; // aventura, rol, etc...
+    protected String genero; // aventura, rol, etc.
     protected int minJugadores;
-    protected int maxJugadores; // ej: 1 a 4 jugadores
-    protected int edadRecomendada; // +3, +7, etc...
+    protected int maxJugadores; // ej.: 1 a 4 jugadores
+    protected int edadRecomendada; // +3, +7, etc.
 
     protected LocalDate fechaSalida;
-    protected ArrayList<String> plataformas; // ej: Consolas, PC, etc...
+    protected String plataformas; // ej.: Consolas, PC, etc.
 
     public Videojuego() {
     }
 
-    public Videojuego(String titulo, double precio, String genero, int minJugadores, int maxJugadores, int edadRecomendada, LocalDate fechaSalida, ArrayList<String> plataformas) {
+    public Videojuego(String titulo, double precio, String genero, int minJugadores, int maxJugadores, int edadRecomendada, LocalDate fechaSalida, String plataformas) {
         this.titulo = titulo;
         this.precio = precio;
         this.genero = genero;
@@ -85,14 +86,15 @@ public class Videojuego {
         this.fechaSalida = fechaSalida;
     }
 
-    public ArrayList<String> getPlataformas() {
+    public String getPlataformas() {
         return plataformas;
     }
 
-    public void setPlataformas(ArrayList<String> plataformas) {
+    public void setPlataformas(String plataformas) {
         this.plataformas = plataformas;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Videojuego{" +
@@ -103,7 +105,7 @@ public class Videojuego {
                 ", maxJugadores=" + maxJugadores +
                 ", edadRecomendada=" + edadRecomendada +
                 ", fechaSalida=" + fechaSalida +
-                ", plataformas=" + plataformas +
+                ", plataformas='" + plataformas + '\'' +
                 '}';
     }
 }
